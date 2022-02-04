@@ -1,4 +1,6 @@
 {
-  "parent": "fabrictarot:block/card_block"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "fabrictarot:item/card_block"
+  }
 }
-
