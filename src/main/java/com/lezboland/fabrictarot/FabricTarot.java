@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+package com.lezboland.fabrictarot;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -12,13 +12,13 @@ import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExampleMod implements ModInitializer {
+public class FabricTarot implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
+	public static final Logger LOGGER = LoggerFactory.getLogger("fabrictarot");
 
-	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.CARPET).strength(0.1f));
+	public static final Block CARD_BLOCK = new CardBlock(FabricBlockSettings.of(Material.CARPET).strength(0.1f).nonOpaque());
 
 	@Override
 	public void onInitialize() {
@@ -28,7 +28,7 @@ public class ExampleMod implements ModInitializer {
 
 		LOGGER.info("Let's get gay and witchy (dykes rule)");
 
-		Registry.register(Registry.BLOCK, new Identifier("tutorial", "example_block"), EXAMPLE_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.BLOCK, new Identifier("fabrictarot", "card_block"), CARD_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("fabrictarot", "card_block"), new CardBlockItem(CARD_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
 	}
 }

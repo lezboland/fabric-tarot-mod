@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "fabrictarot:block/card_block"
+    },
+    "facing=east": {
+      "model": "fabrictarot:block/card_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fabrictarot:block/card_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fabrictarot:block/card_block",
+      "y": 270
+    }
+  }
+}
