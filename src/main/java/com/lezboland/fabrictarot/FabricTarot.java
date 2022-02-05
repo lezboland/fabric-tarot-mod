@@ -18,7 +18,7 @@ public class FabricTarot implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("fabrictarot");
 
-	public static final Block CARD_BLOCK = new CardBlock(FabricBlockSettings.of(Material.CARPET).strength(0.1f).nonOpaque());
+	public static final Block CARD_BLOCK = new CardBlock(FabricBlockSettings.of(Material.CARPET).nonOpaque().breakInstantly().dropsNothing());
 
 	@Override
 	public void onInitialize() {
@@ -29,6 +29,6 @@ public class FabricTarot implements ModInitializer {
 		LOGGER.info("Let's get gay and witchy (dykes rule)");
 
 		Registry.register(Registry.BLOCK, new Identifier("fabrictarot", "card_block"), CARD_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("fabrictarot", "card_block"), new CardBlockItem(CARD_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("fabrictarot", "card_block"), new CardBlockItem(CARD_BLOCK, new FabricItemSettings().group(ItemGroup.MISC).maxCount(1)));
 	}
 }

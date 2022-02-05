@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Util;
+import net.minecraft.util.registry.Registry;
 
 public class CardBlockItem extends BlockItem {
     public CardBlockItem(Block block, Settings settings) {
@@ -26,5 +26,11 @@ public class CardBlockItem extends BlockItem {
         }
 
         return result;
+    }
+
+    @Override
+    public String getTranslationKey() {
+        // Give item a separate name from block
+        return Util.createTranslationKey("item", Registry.ITEM.getId(this));
     }
 }
