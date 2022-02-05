@@ -4,24 +4,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,15 +21,19 @@ import java.util.Random;
 public class CardBlock extends HorizontalFacingBlock {
     public static final Logger LOGGER = LoggerFactory.getLogger("fabrictarot");
 
+    public static final int CARD_COUNT = 3;
+    public static final IntProperty CARD_NUMBER = IntProperty.of("cardnumber", 0, CARD_COUNT - 1);
+
 
     public CardBlock(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH).with(CARD_NUMBER, 0));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
+        stateManager.add(CARD_NUMBER);
     }
 
     @Override
@@ -52,20 +47,24 @@ public class CardBlock extends HorizontalFacingBlock {
 
         Random numGen = new Random();
         //new integer variable called num gets random number btwn 0 and 1
-        int num = numGen.nextInt(2);
+        int dirNum = numGen.nextInt(2);
 
-        LOGGER.info("getPlacementState num = " + num);
+        LOGGER.info("getPlacementState num = " + dirNum);
 
         Direction dir;
-        if (num == 0) {
+        if (dirNum == 0) {
             //set dir to direction player is facing
             dir = ctx.getPlayerFacing();
         } else {
             //set dir to opposite of direction player is facing
             dir = ctx.getPlayerFacing().getOpposite();
         }
+        
+        int cardNum = numGen.nextInt(CARD_COUNT);
 
-        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, dir);
+        LOGGER.info("cardNum = " + cardNum);
+
+        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, dir).with(CARD_NUMBER, cardNum);
     }
 
 }

@@ -1,18 +1,48 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "fabrictarot:block/card_block"
+    "facing=north,cardnumber=0": {
+      "model": "fabrictarot:block/card_block_0"
     },
-    "facing=east": {
-      "model": "fabrictarot:block/card_block",
+    "facing=east,cardnumber=0": {
+      "model": "fabrictarot:block/card_block_0",
       "y": 90
     },
-    "facing=south": {
-      "model": "fabrictarot:block/card_block",
+    "facing=south,cardnumber=0": {
+      "model": "fabrictarot:block/card_block_0",
       "y": 180
     },
-    "facing=west": {
-      "model": "fabrictarot:block/card_block",
+    "facing=west,cardnumber=0": {
+      "model": "fabrictarot:block/card_block_0",
+      "y": 270
+    },
+    "facing=north,cardnumber=1": {
+      "model": "fabrictarot:block/card_block_1"
+    },
+    "facing=east,cardnumber=1": {
+      "model": "fabrictarot:block/card_block_1",
+      "y": 90
+    },
+    "facing=south,cardnumber=1": {
+      "model": "fabrictarot:block/card_block_1",
+      "y": 180
+    },
+    "facing=west,cardnumber=1": {
+      "model": "fabrictarot:block/card_block_1",
+      "y": 270
+    },
+    "facing=north,cardnumber=2": {
+      "model": "fabrictarot:block/card_block_2"
+    },
+    "facing=east,cardnumber=2": {
+      "model": "fabrictarot:block/card_block_2",
+      "y": 90
+    },
+    "facing=south,cardnumber=2": {
+      "model": "fabrictarot:block/card_block_2",
+      "y": 180
+    },
+    "facing=west,cardnumber=2": {
+      "model": "fabrictarot:block/card_block_2",
       "y": 270
     }
   }

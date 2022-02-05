@@ -1,7 +1,4 @@
 {
-  "textures": {
-    "all": "fabrictarot:block/card_block"
-  },
   "elements": [
     {
       "from": [ 5, 0, 1 ],

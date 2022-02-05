@@ -1,0 +1,6 @@
+{
+  "parent": "fabrictarot:block/card_block",
+  "textures": {
+    "all": "fabrictarot:block/card_block_1"
+  }
+}
